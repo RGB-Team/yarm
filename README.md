@@ -143,10 +143,18 @@ The following items need to be completed for full SEO implementation:
 - [ ] Sitemap:
   - [x] Implement dynamic sitemap generation
   - [x] Add sitemap to robots.txt
-  - [ ] Submit sitemap to search engines
-  - [ ] Add dynamic route generation
-  - [ ] Implement lastmod dates
-  - [ ] Add changefreq and priority
+  - [x] Configure static routes
+  - [x] Set up route priorities
+  - [x] Implement changefreq settings
+  - [ ] Add dynamic route generation from database
+  - [ ] Set up automatic sitemap revalidation
+  - [ ] Submit sitemap to:
+    - [ ] Google Search Console
+    - [ ] Bing Webmaster Tools
+    - [ ] Yandex Webmaster
+  - [ ] Monitor sitemap coverage
+  - [ ] Implement sitemap index for large sites
+  - [ ] Add lastmod dates from content updates
 
 - [ ] Structured Data:
   - [ ] Implement JSON-LD for organization
@@ -183,40 +191,43 @@ The following items need to be completed for full SEO implementation:
   - [ ] Create brand style guide
   - [ ] Add logo to all templates (OG, favicon, etc.)
 
-#### OpenGraph Image Generation
+### Sitemap Configuration
 
-The project includes dynamic OG image generation using the `@vercel/og` package. Images are generated on-demand with customizable parameters.
+The project uses Next.js 14's built-in sitemap generation. The sitemap system:
+- Automatically generates XML sitemaps
+- Supports both static and dynamic routes
+- Configures route priorities and change frequencies
+- Integrates with robots.txt
+- Updates automatically with deployments
 
-##### Testing URLs
-Test the OG image generation at these endpoints:
-```
-http://localhost:3000/api/og                           # Default OG image
-http://localhost:3000/api/og?title=Custom%20Title      # Custom title
-http://localhost:3000/api/og?mode=dark                 # Dark mode
-http://localhost:3000/api/og?type=article              # Article type
-```
+#### Usage
 
-##### Parameters
-- `title`: Custom title for the image (defaults to site name)
-- `mode`: 'light' or 'dark' theme (defaults to 'light')
-- `type`: 'default', 'page', or 'article' (affects layout)
-
-##### Usage in Pages
+1. Add new static routes to the sitemap config:
 ```typescript
-// In any page file:
-export const metadata = constructMetadata({
-  title: "Page Title",
-  mode: "dark",
-  type: "article"
-})
+// config/sitemap.ts
+export const siteConfig = {
+  staticRoutes: [
+    '/new-route',
+    '/another-route',
+  ],
+}
 ```
 
-The OG image will automatically:
-- Match your site's branding
-- Support light/dark modes
-- Include your logo
-- Scale text appropriately
-- Generate social media previews
+2. Configure dynamic routes:
+```typescript
+// config/sitemap.ts
+dynamicRoutes: {
+  '/dynamic/:id': {
+    changefreq: 'daily',
+    priority: 0.7
+  }
+}
+```
+
+3. Access your sitemap at:
+```
+https://your-domain.com/sitemap.xml
+```
 
 ## Usage
 
