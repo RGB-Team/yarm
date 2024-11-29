@@ -84,7 +84,7 @@ export function constructMetadata({
       },
     },
     icons: {
-      icon: '/meta/favicon.ico',
+      icon: '/app/favicon.ico',
       shortcut: '/meta/favicon-16x16.png',
       apple: '/meta/apple-touch-icon.png',
     },

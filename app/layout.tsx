@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { constructMetadata } from "@/lib/metadata"
+import { constructMetadata } from "@/config/seo"
 import { TailwindIndicator } from "@/components/tw-indicator"
 
 const geistSans = localFont({
@@ -17,7 +17,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = constructMetadata();
+export const metadata = constructMetadata()
 
 export default function RootLayout({
   children,
