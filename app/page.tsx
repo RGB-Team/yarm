@@ -1,108 +1,76 @@
-import Image from "next/image";
-import { constructMetadata } from "@/lib/metadata"
-
-export const metadata = constructMetadata({
-  title: "Home",
-  description: "Manage your npm registries with ease",
-  pathname: "/",
-})
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Search, Command } from "lucide-react"
+import { Logo } from "@/components/logo"
+import { Footer } from "@/components/footer"
+import { GridPattern } from "@/components/grid-pattern"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <div className="relative">
+        <GridPattern />
+        <main className="flex min-h-screen flex-col items-center px-4">
+          {/* Hero Section */}
+          <section className="flex flex-col items-center text-center max-w-4xl pt-20 pb-16">
+            <div className="mb-8">
+              <Logo />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tighter mb-4">
+              Framework-Agnostic Web Components Registry for the Modern Web.
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8">
+              Browse thousands of framework-agnostic web components from the community. Share your creations and
+              integrate others' components with simple commands.
+            </p>
+            
+            {/* CTA and Search */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl">
+              <Button size="lg" className="sm:w-1/3">
+                Get Started
+              </Button>
+              <div className="relative sm:w-2/3">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
+                <Input 
+                  placeholder="Search components, registries..." 
+                  className="pl-10 pr-10 h-11 w-full"
+                />
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center gap-1 text-sm text-muted-foreground">
+                  <Command className="w-3 h-3" />
+                  <span>K</span>
+                </div>
+              </div>
+            </div>
+          </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          {/* Popular Registries Section */}
+          <section className="w-full max-w-7xl mb-20">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold">Discover Popular Registries</h2>
+              <Button variant="ghost">See All</Button>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {Array(6).fill(0).map((_, i) => (
+                <div key={i} className="p-6 rounded-lg border bg-card">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-primary">@bylka</span>
+                    <span>/shadcn-date-picker</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    A dart implementation of the famous javascript library 'jsonwebtoken' (JWT).
+                  </p>
+                  <div className="flex gap-2">
+                    <span className="px-3 py-1 rounded-full bg-secondary text-xs">shadcn</span>
+                    <span className="px-3 py-1 rounded-full bg-secondary text-xs">date-picker</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
+    </>
+  )
 }
