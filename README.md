@@ -126,10 +126,14 @@ The following items need to be completed for full SEO implementation:
   - [ ] android-chrome-192x192.png
   - [ ] android-chrome-512x512.png
 
-- [ ] OpenGraph Image:
-  - [ ] Create OG image template (1200x630)
-  - [ ] Add OG image generation API route
-  - [ ] Implement dynamic OG images for different pages
+- [x] OpenGraph Image:
+  - [x] Create OG image template (1200x630)
+  - [x] Add OG image generation API route
+  - [x] Implement dynamic OG images for different pages
+  - [ ] Update OG template with official branding
+  - [ ] Add proper typography and spacing
+  - [ ] Implement branded background pattern
+  - [ ] Add dynamic color themes based on brand palette
 
 - [ ] Verification:
   - [ ] Add Google Search Console verification
@@ -137,9 +141,12 @@ The following items need to be completed for full SEO implementation:
   - [ ] Configure Google Tag Manager
 
 - [ ] Sitemap:
-  - [ ] Implement dynamic sitemap generation
-  - [ ] Add sitemap to robots.txt
+  - [x] Implement dynamic sitemap generation
+  - [x] Add sitemap to robots.txt
   - [ ] Submit sitemap to search engines
+  - [ ] Add dynamic route generation
+  - [ ] Implement lastmod dates
+  - [ ] Add changefreq and priority
 
 - [ ] Structured Data:
   - [ ] Implement JSON-LD for organization
@@ -164,7 +171,52 @@ The following items need to be completed for full SEO implementation:
 - [ ] Social Media:
   - [ ] Create Twitter card templates
   - [ ] Set up Facebook Open Graph tags
-  - [ ] Configure LinkedIn rich previews
+
+- [ ] Brand Assets:
+  - [x] Create official YARM logo:
+    - [ ] Primary logo (SVG)
+    - [ ] Logo mark only (SVG)
+    - [ ] Logo with text (SVG)
+    - [ ] Dark mode variants
+    - [ ] Social media variants
+  - [ ] Define brand colors and typography
+  - [ ] Create brand style guide
+  - [ ] Add logo to all templates (OG, favicon, etc.)
+
+#### OpenGraph Image Generation
+
+The project includes dynamic OG image generation using the `@vercel/og` package. Images are generated on-demand with customizable parameters.
+
+##### Testing URLs
+Test the OG image generation at these endpoints:
+```
+http://localhost:3000/api/og                           # Default OG image
+http://localhost:3000/api/og?title=Custom%20Title      # Custom title
+http://localhost:3000/api/og?mode=dark                 # Dark mode
+http://localhost:3000/api/og?type=article              # Article type
+```
+
+##### Parameters
+- `title`: Custom title for the image (defaults to site name)
+- `mode`: 'light' or 'dark' theme (defaults to 'light')
+- `type`: 'default', 'page', or 'article' (affects layout)
+
+##### Usage in Pages
+```typescript
+// In any page file:
+export const metadata = constructMetadata({
+  title: "Page Title",
+  mode: "dark",
+  type: "article"
+})
+```
+
+The OG image will automatically:
+- Match your site's branding
+- Support light/dark modes
+- Include your logo
+- Scale text appropriately
+- Generate social media previews
 
 ## Usage
 
