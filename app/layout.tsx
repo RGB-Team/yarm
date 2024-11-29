@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { constructMetadata } from "@/lib/metadata"
+import { TailwindIndicator } from "@/components/tw-indicator"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
         >
           {children}
           <ThemeToggle />
+          <TailwindIndicator />
         </ThemeProvider>
       </body>
     </html>
