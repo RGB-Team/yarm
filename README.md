@@ -79,6 +79,93 @@ The application includes a dark mode toggle with animated transitions. The theme
 
 Available components and their documentation can be found in the [shadcn/ui documentation](https://ui.shadcn.com/docs/components/accordion).
 
+### SEO Implementation
+
+This project implements a robust SEO system using Next.js 14 metadata API. The system is centralized and type-safe, allowing for easy management of metadata across all pages.
+
+#### Structure
+- `config/seo.ts` - Central configuration for all SEO-related content
+- `lib/metadata.ts` - Utility function to construct metadata
+- `public/robots.txt` - Search engine crawling rules
+- `public/site.webmanifest` - Progressive Web App manifest
+
+#### Usage
+
+1. Default metadata is automatically applied from the SEO config:
+```typescript
+// app/layout.tsx
+export const metadata = constructMetadata()
+```
+
+2. Page-specific metadata can be added using the constructMetadata function:
+```typescript
+// app/any-page/page.tsx
+export const metadata = constructMetadata({
+  title: "Page Title",
+  description: "Page specific description",
+  pathname: "/any-page",
+  noIndex: false, // optional: prevent indexing
+})
+```
+
+3. Environment Variables Required:
+```bash
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
+```
+
+#### SEO Todo List
+
+The following items need to be completed for full SEO implementation:
+
+- [ ] Create favicon files:
+  - [ ] favicon.ico (32x32)
+  - [ ] favicon-16x16.png
+  - [ ] favicon-32x32.png
+  - [ ] apple-touch-icon.png (180x180)
+  - [ ] android-chrome-192x192.png
+  - [ ] android-chrome-512x512.png
+
+- [ ] OpenGraph Image:
+  - [ ] Create OG image template (1200x630)
+  - [ ] Add OG image generation API route
+  - [ ] Implement dynamic OG images for different pages
+
+- [ ] Verification:
+  - [ ] Add Google Search Console verification
+  - [ ] Set up Google Analytics
+  - [ ] Configure Google Tag Manager
+
+- [ ] Sitemap:
+  - [ ] Implement dynamic sitemap generation
+  - [ ] Add sitemap to robots.txt
+  - [ ] Submit sitemap to search engines
+
+- [ ] Structured Data:
+  - [ ] Implement JSON-LD for organization
+  - [ ] Add JSON-LD for breadcrumbs
+  - [ ] Include structured data for main features
+
+- [ ] Performance:
+  - [ ] Optimize image loading
+  - [ ] Implement proper caching headers
+  - [ ] Configure CSP headers
+
+- [ ] Monitoring:
+  - [ ] Set up SEO monitoring tools
+  - [ ] Implement performance monitoring
+  - [ ] Configure error tracking
+
+- [ ] Accessibility:
+  - [ ] Complete ARIA labels
+  - [ ] Ensure proper heading hierarchy
+  - [ ] Test with screen readers
+
+- [ ] Social Media:
+  - [ ] Create Twitter card templates
+  - [ ] Set up Facebook Open Graph tags
+  - [ ] Configure LinkedIn rich previews
+
 ## Usage
 
 [Add specific usage instructions for your registry manager here]

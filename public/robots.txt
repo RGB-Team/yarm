@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yarm.vercel.app/sitemap.xml 
