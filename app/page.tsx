@@ -1,4 +1,11 @@
 import Image from "next/image";
+import { constructMetadata } from "@/lib/metadata"
+
+export const metadata = constructMetadata({
+  title: "Home",
+  description: "Manage your npm registries with ease",
+  pathname: "/",
+})
 
 export default function Home() {
   return (
