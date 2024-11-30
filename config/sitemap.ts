@@ -1,5 +1,5 @@
 export const siteConfig = {
-  baseUrl: process.env.NEXT_PUBLIC_APP_URL || 'https://yarm.vercel.app',
+  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://yarm.vercel.app',
   // Add all static routes here
   staticRoutes: [
     '',              // home page

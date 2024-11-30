@@ -13,6 +13,117 @@ export async function GET(req: NextRequest) {
     const mode = searchParams.get('mode') || 'light'
     const type = searchParams.get('type') || 'default'
 
+    // Content variations based on type
+    const getContent = () => {
+      switch (type) {
+        case 'article':
+          return (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                padding: '4rem',
+                gap: '2rem',
+              }}
+            >
+              <div style={{ fontSize: 32, opacity: 0.8 }}>Article</div>
+              <div
+                style={{
+                  fontSize: 72,
+                  fontWeight: 900,
+                  letterSpacing: '-0.05em',
+                  lineHeight: 1.1,
+                  textWrap: 'balance',
+                  maxWidth: '80%',
+                }}
+              >
+                {title}
+              </div>
+            </div>
+          )
+        default:
+          return (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '1.5rem',
+                maxWidth: '80%',
+                textAlign: 'center',
+                zIndex: 1,
+              }}
+            >
+              {/* Logo */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  marginBottom: '1rem',
+                }}
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  style={{ transform: 'scale(1.5)' }}
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    rx="8"
+                    fill={mode === 'dark' ? '#fff' : '#000'}
+                  />
+                  <path
+                    d="M24 12.5L35 28H13L24 12.5Z"
+                    fill={mode === 'dark' ? '#000' : '#fff'}
+                  />
+                </svg>
+                <span
+                  style={{
+                    fontSize: 48,
+                    fontWeight: 700,
+                    letterSpacing: '-0.05em',
+                  }}
+                >
+                  YARM
+                </span>
+              </div>
+
+              {/* Title */}
+              <div
+                style={{
+                  fontSize: 64,
+                  fontWeight: 900,
+                  letterSpacing: '-0.05em',
+                  lineHeight: 1.1,
+                  marginBottom: '1rem',
+                  textWrap: 'balance',
+                }}
+              >
+                {title}
+              </div>
+
+              {/* Subtitle */}
+              <div
+                style={{
+                  fontSize: 28,
+                  fontWeight: 400,
+                  opacity: 0.8,
+                  marginBottom: '2rem',
+                }}
+              >
+                {siteConfig.description}
+              </div>
+            </div>
+          )
+      }
+    }
+
     return new ImageResponse(
       (
         <div
@@ -45,83 +156,8 @@ export async function GET(req: NextRequest) {
             }}
           />
           
-          {/* Content Container */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1.5rem',
-              maxWidth: '80%',
-              textAlign: 'center',
-              zIndex: 1,
-            }}
-          >
-            {/* Logo */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                marginBottom: '1rem',
-              }}
-            >
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-                style={{ transform: 'scale(1.5)' }}
-              >
-                <rect
-                  width="48"
-                  height="48"
-                  rx="8"
-                  fill={mode === 'dark' ? '#fff' : '#000'}
-                />
-                <path
-                  d="M24 12.5L35 28H13L24 12.5Z"
-                  fill={mode === 'dark' ? '#000' : '#fff'}
-                />
-              </svg>
-              <span
-                style={{
-                  fontSize: 48,
-                  fontWeight: 700,
-                  letterSpacing: '-0.05em',
-                }}
-              >
-                YARM
-              </span>
-            </div>
-
-            {/* Title */}
-            <div
-              style={{
-                fontSize: 64,
-                fontWeight: 900,
-                letterSpacing: '-0.05em',
-                lineHeight: 1.1,
-                marginBottom: '1rem',
-                textWrap: 'balance',
-              }}
-            >
-              {title}
-            </div>
-
-            {/* Subtitle */}
-            <div
-              style={{
-                fontSize: 28,
-                fontWeight: 400,
-                opacity: 0.8,
-                marginBottom: '2rem',
-              }}
-            >
-              {siteConfig.description}
-            </div>
-          </div>
+          {/* Dynamic Content based on type */}
+          {getContent()}
         </div>
       ),
       {

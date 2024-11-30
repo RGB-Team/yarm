@@ -21,7 +21,7 @@ export default function Home() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Browse thousands of framework-agnostic web components from the community. Share your creations and
-              integrate others' components with simple commands.
+              integrate others&apos; components with simple commands.
             </p>
             
             {/* CTA and Search */}
@@ -58,7 +58,7 @@ export default function Home() {
                     <span>/shadcn-date-picker</span>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    A dart implementation of the famous javascript library 'jsonwebtoken' (JWT).
+                    A dart implementation of the famous javascript library &apos;jsonwebtoken&apos; (JWT).
                   </p>
                   <div className="flex gap-2">
                     <span className="px-3 py-1 rounded-full bg-secondary text-xs">shadcn</span>
