@@ -110,7 +110,7 @@ export const metadata = constructMetadata({
 
 3. Environment Variables Required:
 ```bash
-NEXT_PUBLIC_APP_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
 ```
 
