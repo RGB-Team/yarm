@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Search, Command } from "lucide-react"
+import { Search } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { Footer } from "@/components/footer"
 import { GridPattern } from "@/components/grid-pattern"
