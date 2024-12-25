@@ -12,7 +12,6 @@ export default function Home() {
       <div className="relative">
         <GridPattern />
         <main className="flex min-h-screen flex-col items-center px-4">
-          {/* Hero Section */}
           <section className="flex flex-col items-center text-center max-w-4xl pt-20 pb-16">
             <div className="mb-8">
               <Logo />
@@ -24,8 +23,6 @@ export default function Home() {
               Browse thousands of framework-agnostic web components from the community. Share your creations and
               integrate others&apos; components with simple commands.
             </p>
-            
-            {/* CTA and Search */}
             <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl">
               <Button size="default" className="sm:w-1/4 bg-primary font-mono text-sm" variant="default">
                 <GithubIcon className="w-6 h-6 mr-1" />
@@ -44,8 +41,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
-          {/* Popular Registries Section */}
           <section className="w-full max-w-7xl pb-20 pt-20">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">Discover Popular Registries</h2>
