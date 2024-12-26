@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@yarm/ui/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { Logo } from "@/components/logo";
