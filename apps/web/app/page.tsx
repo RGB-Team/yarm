@@ -5,12 +5,10 @@ import { Logo } from "@/components/logo";
 import { Footer } from "@/components/footer";
 import { GridPattern } from "@/components/grid-pattern";
 import { GithubIcon } from "@/components/icons/github";
-import { Code } from "@yarm/ui/code";
 
 export default function Home() {
   return (
     <>
-      <Code>{`Hey there! This is a code block!`}</Code>
       <div className="relative">
         <GridPattern />
         <main className="flex min-h-screen flex-col items-center px-4">

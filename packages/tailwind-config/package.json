@@ -1,0 +1,23 @@
+{
+  "name": "@yarm/tailwind-config",
+  "version": "0.0.1",
+  "description": "This is the tailwind configuration for yarm.dev",
+  "main": "index.ts",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwind-scrollbar-hide": "2.0.0"
+  },
+  "author": "Belkacem Yerfa <belkacem.yerfa@gmail.com>",
+  "keywords": [
+    "yarm",
+    "yarm style",
+    "yarm.dev",
+    "tailwindcss",
+    "tailwind"
+  ],
+  "license": "ISC"
+}
