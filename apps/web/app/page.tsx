@@ -37,6 +37,7 @@ export default function Home() {
               </Button>
               <div className="relative sm:w-2/3">
                 <Input
+
                   placeholder="Search components, registries..."
                   className="pr-10 h-11 w-full border bg-white/10 placeholder:text-muted-foreground/50"
                 />
