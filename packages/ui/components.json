@@ -15,7 +15,7 @@
     "utils": "@yarm/ui/lib/utils",
     "hooks": "@yarm/ui/hooks",
     "lib": "@yarm/ui/lib",
-    "ui": "@yarm/ui/components"
+    "ui": "@yarm/ui/components/ui"
   },
   "iconLibrary": "lucide"
 }
