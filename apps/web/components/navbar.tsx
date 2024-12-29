@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Logo } from "./logo";
 import { Input } from "./ui/input";
@@ -8,12 +6,9 @@ import { GithubIcon } from "./icons/github";
 import { SheetIcon } from "./icons/sheet";
 import { BlogIcon } from "./icons/blog";
 import { Search } from "lucide-react";
-import { useParser } from "@yarm/ui/hooks/use-parser";
 import React from "react";
 
 export function Navbar() {
-  const [value, setValue] = React.useState("hey there version:haha");
-  console.log(useParser(value));
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto px-4">
@@ -24,11 +19,10 @@ export function Navbar() {
           </div>
 
           {/* Center section with search */}
+
           <div className="flex-1 mx-4 max-w-2xl">
             <div className="relative group">
               <Input
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
                 type="search"
                 placeholder="Search components, registries..."
                 className="w-full pl-4 pr-8 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer"

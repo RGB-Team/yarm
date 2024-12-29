@@ -1,5 +1,5 @@
 // tailwind config is required for editor support
-import sharedConfig from "@yarm/tailwind-config/tailwind.config.ts";
+import sharedConfig from "@yarm/tailwind-config/tailwind.config";
 import type { Config } from "tailwindcss";
 
 const config: Pick<Config, "presets"> = {
