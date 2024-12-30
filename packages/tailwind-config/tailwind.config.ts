@@ -53,6 +53,8 @@ const config: Config = {
           bg: "hsl(var(--key))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        outline: "hsl(var(--outline))",
+        search: "hsl(var(--search))",
         border: "hsl(var(--border))",
         layout: {
           border: "hsl(var(--layout-border))",
@@ -100,17 +102,13 @@ const config: Config = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          "secondary-foreground": "hsl(var(--sidebar-secondary-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+      },
+      fontSize: {
+        title: ["var(--font-size-title)", "auto"],
+        // between the sm and base
+        md: ["var(--font-size-md)", "auto"],
+        // between the xs and sm
+        xsm: ["var(--font-size-xsm)", "auto"],
       },
       keyframes: {
         "accordion-down": {

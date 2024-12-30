@@ -37,12 +37,15 @@ export default function Home() {
               </Button>
               <div className="relative sm:w-2/3">
                 <Input
-
                   placeholder="Search components, registries..."
                   className="pr-10 h-11 w-full border bg-white/10 placeholder:text-muted-foreground/50"
                 />
                 <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-1 text-sm text-muted-foreground/70">
-                  <Button variant="ghost" size="icon" className="bg-black/10">
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    className="bg-black/10"
+                  >
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/70" />
                   </Button>
                 </div>
@@ -54,7 +57,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold">
                 Discover Popular Registries
               </h2>
-              <Button variant="ghost">See All</Button>
+              <Button variant="secondary-outline">See All</Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

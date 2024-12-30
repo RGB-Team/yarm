@@ -73,7 +73,7 @@ const Tags = React.forwardRef<HTMLDivElement, TagsProps>(
     const [disableButton, setDisableButton] = React.useState(false);
     const [isValueSelected, setIsValueSelected] = React.useState(false);
     const [selectedValue, setSelectedValue] = React.useState("");
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const parseMinItems = minItems ?? 0;
     const parseMaxItems = maxItems ?? Infinity;
@@ -268,7 +268,7 @@ const Tags = React.forwardRef<HTMLDivElement, TagsProps>(
           open,
         }}
       >
-        <div className={cn(className, "overflow-visible")} {...props}>
+        <div className={cn(className, "overflow-visible space-y-2")} {...props}>
           {children}
         </div>
       </TagInputContext.Provider>
@@ -379,9 +379,14 @@ const TagsList = React.forwardRef<HTMLDivElement, TagsListProps>(
   ({ className, children, ...props }, ref) => {
     const { open } = useTags();
     return (
-      <div ref={ref} className={cn("relative")}>
+      <div
+        ref={ref}
+        className={cn(
+          "relative border border-white/[0.16] rounded-lg bg-search"
+        )}
+      >
         {open && (
-          <div className={cn("absolute inset-0", className)} {...props}>
+          <div className={cn("inset-0 pt-[1.1875rem]", className)} {...props}>
             {children}
           </div>
         )}
@@ -396,14 +401,22 @@ const TagsHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
-  return <div ref={ref} className={cn("", className)} {...props}></div>;
+  return (
+    <div ref={ref} className={cn("px-4 pb-5", className)} {...props}>
+      {children}
+    </div>
+  );
 });
 
 const TagsContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
-  return <div ref={ref} className={cn("", className)} {...props}></div>;
+  return (
+    <div ref={ref} className={cn("", className)} {...props}>
+      {children}
+    </div>
+  );
 });
 
 const TagsGroup = React.forwardRef<
@@ -414,7 +427,7 @@ const TagsGroup = React.forwardRef<
 >(({ className, heading, children, ...props }, ref) => {
   return (
     <div ref={ref} className={cn("space-y-2", className)} {...props}>
-      <h4 className="ml-4">{heading}</h4>
+      <h4 className="ml-4 text-xsm text-white/80">{heading}</h4>
       {children}
     </div>
   );
@@ -425,8 +438,8 @@ const TagsItem = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
   return (
-    <div className={cn("border-t border-input")}>
-      <div ref={ref} className={cn("ml-4", className)} {...props}>
+    <div className={cn("border-t border-white/10")}>
+      <div ref={ref} className={cn("px-5 py-[1.375rem]", className)} {...props}>
         {children}
       </div>
     </div>

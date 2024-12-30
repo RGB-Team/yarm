@@ -10,11 +10,12 @@ type ShowCardProps = {
 const ShowCard = ({ title, children, className }: ShowCardProps) => {
   return (
     <Card className="p-0">
-      <CardHeader className="border-b border-white px-2 py-1">
-        {title}
-      </CardHeader>
+      <CardHeader className="border-b px-2 py-1">{title}</CardHeader>
       <CardContent
-        className={cn("px-1 py-2 flex items-center gap-2 flex-wrap", className)}
+        className={cn(
+          "px-1 py-2 flex justify-center items-center gap-2 flex-wrap",
+          className
+        )}
       >
         {children}
       </CardContent>

@@ -4,17 +4,23 @@ import { Input } from "@yarm/ui/components/ui/input";
 import { Button } from "@yarm/ui/components/ui/button";
 import { Key } from "@yarm/ui/components/ui/key";
 import { Form, FormField, FormItem } from "@yarm/ui/components/ui/form";
-import { Search } from "lucide-react";
+import { Search, SearchX } from "lucide-react";
 import { SearchSchema, SearchType } from "@yarm/ui/validators/search-validator";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import {
   Tags,
+  TagsContent,
+  TagsGroup,
+  TagsHeader,
   TagsInput,
   TagsInputWrapper,
+  TagsItem,
   TagsList,
 } from "@yarm/ui/components/ui/tags-input";
+import { Badge } from "@yarm/ui/components/ui/badge";
+import { DotSeparator } from "@yarm/ui/components/ui/separator";
 
 const SearchCommand = ({
   ref,
@@ -77,14 +83,56 @@ const SearchCommand = ({
   );
 };
 
+const KEYWORDS = ["author", "tags", "version", "collection"];
+
 const SearchCommandForm = () => {
   const [value, setValue] = React.useState<string[]>([]);
   return (
     <Tags value={value} onValueChange={setValue}>
-      <TagsInputWrapper>
+      <TagsInputWrapper className="w-full">
         <TagsInput placeholder="Something here" />
       </TagsInputWrapper>
-      <TagsList></TagsList>
+      <TagsList>
+        <TagsHeader className="space-y-2">
+          <h4 className="text-white/80 text-xsm">Search Options</h4>
+          <div className="flex gap-[0.625rem] ">
+            {KEYWORDS.map((keyword) => (
+              <Badge
+                key={keyword}
+                className="h-7 text-xsm text-primary/90 tracking-widest cursor-pointer"
+                variant={"secondary"}
+              >
+                {keyword}:
+              </Badge>
+            ))}
+          </div>
+        </TagsHeader>
+        <TagsContent>
+          <TagsGroup heading={"Results"}>
+            <TagsItem className="flex items-center justify-between">
+              <div>
+                <h4 className="text-md font-medium">shadcn extension</h4>
+                <p className="text-white/80 text-xs flex items-center gap-[0.375rem]">
+                  <span className="tracking-widest">0.5.0</span>
+                  <DotSeparator className="bg-white/80" />
+                  <span>Extend your own ui</span>
+                </p>
+              </div>
+              <div className="flex items-center gap-[0.375rem]">
+                <Button size="icon" variant="secondary" className="size-7">
+                  <SearchX />
+                </Button>
+                <Button size="icon" variant="secondary" className="size-7">
+                  <SearchX />
+                </Button>
+                <Badge variant="secondary" className="h-7">
+                  collection
+                </Badge>
+              </div>
+            </TagsItem>
+          </TagsGroup>
+        </TagsContent>
+      </TagsList>
     </Tags>
   );
 };
