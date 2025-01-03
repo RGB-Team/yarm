@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Azeret_Mono} from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { constructMetadata } from "@/config/seo"
-import { TailwindIndicator } from "@/components/tw-indicator"
-import { Navbar } from "@/components/navbar"
+import { Azeret_Mono } from "next/font/google";
+import "@yarm/tailwind-config/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { constructMetadata } from "@/config/seo";
+import { TailwindIndicator } from "@/components/tw-indicator";
+import { Navbar } from "@/components/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,7 +20,7 @@ const azeretMono = Azeret_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = constructMetadata()
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,

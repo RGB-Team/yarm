@@ -1,12 +1,12 @@
-import Link from "next/link"
-import { Logo } from "./logo"
-import { Input } from "./ui/input"
-import { Button } from "./ui/button"
-import { GithubIcon } from "./icons/github"
-import { SheetIcon } from "./icons/sheet"
-import { BlogIcon } from "./icons/blog"
-import { Search } from "lucide-react"
-
+import Link from "next/link";
+import { Logo } from "./logo";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { GithubIcon } from "./icons/github";
+import { SheetIcon } from "./icons/sheet";
+import { BlogIcon } from "./icons/blog";
+import { Search } from "lucide-react";
+import React from "react";
 
 export function Navbar() {
   return (
@@ -15,10 +15,11 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Left section with logo */}
           <div className="flex items-center gap-4">
-              <Logo className="h-6" />
+            <Logo className="h-6" />
           </div>
 
           {/* Center section with search */}
+
           <div className="flex-1 mx-4 max-w-2xl">
             <div className="relative group">
               <Input
@@ -28,14 +29,14 @@ export function Navbar() {
               />
               <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-2 text-sm text-muted-foreground/70 peer-focus:opacity-0 transition-opacity duration-200">
                 <span>
-                    Type 
-                    <kbd className="pointer-events-none text-sm border border-muted-foreground/20 rounded-sm px-1 mx-2 py-0.5">
-                        /
-                    </kbd>
-                    to search
+                  Type
+                  <kbd className="pointer-events-none text-sm border border-muted-foreground/20 rounded-sm px-1 mx-2 py-0.5">
+                    /
+                  </kbd>
+                  to search
                 </span>
                 <Button variant="ghost" size="icon" className="bg-black/10">
-                    <Search className="text-muted-foreground/70" />
+                  <Search className="text-muted-foreground/70" />
                 </Button>
               </div>
             </div>
@@ -44,40 +45,40 @@ export function Navbar() {
           {/* Right section with navigation */}
           <nav className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-                <BlogIcon className="w-4 h-4" />
-                <Link
-                    // href="/blog"
-                    href="#"
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground"
-                >
-                    Blog
-                </Link>
+              <BlogIcon className="w-4 h-4" />
+              <Link
+                // href="/blog"
+                href="#"
+                className="text-lg font-medium text-muted-foreground hover:text-foreground"
+              >
+                Blog
+              </Link>
             </div>
-            
+
             <div className="flex items-center gap-3">
-                <SheetIcon className="w-4 h-4" />
-                <Link
+              <SheetIcon className="w-4 h-4" />
+              <Link
                 // href="#"
                 href="/docs"
                 className="text-lg font-medium text-muted-foreground hover:text-foreground"
-                >
+              >
                 Docs
-                </Link>
+              </Link>
             </div>
 
             <Button className="flex items-center gap-2 text-secondary bg-card">
-                <GithubIcon className="w-4 h-4 fill-secondary" />
-                <Link
-                    href="#"
-                    // href="/sign-in"
-                    className="text-lg font-medium text-secondary"
-                >
-                    Sign in
-                </Link>
+              <GithubIcon className="w-4 h-4 fill-secondary" />
+              <Link
+                href="#"
+                // href="/sign-in"
+                className="text-lg font-medium text-secondary"
+              >
+                Sign in
+              </Link>
             </Button>
           </nav>
         </div>
       </div>
     </header>
-  )
-} 
+  );
+}

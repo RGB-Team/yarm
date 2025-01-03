@@ -14,6 +14,7 @@
     "@vercel/og": "^0.6.4",
     "@yarm/ui": "workspace:*",
     "@yarm/eslint-config": "workspace:*",
+    "@yarm/tailwind-config": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.462.0",
