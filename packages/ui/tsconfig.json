@@ -1,0 +1,8 @@
+{
+  "extends": "@yarm/typescript-config/react-library.json",
+  "compilerOptions": {
+    "rootDir": "."
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
