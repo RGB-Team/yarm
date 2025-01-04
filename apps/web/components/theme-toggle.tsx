@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import { Button } from "@yarm/ui/components/ui/button"
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
@@ -29,7 +29,7 @@ export function ThemeToggle() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <Button
-        variant="outline"
+        variant="ghost"
         size="icon"
         className="h-10 w-10"
         onClick={toggleTheme}

@@ -1,5 +1,5 @@
 import { Button } from "@yarm/ui/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Input } from "@yarm/ui/components/ui/input";
 import { Search } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Footer } from "@/components/footer";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./logo";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Input } from "@yarm/ui/components/ui/input";
+import { Button } from "@yarm/ui/components/ui/button";
 import { GithubIcon } from "./icons/github";
 import { SheetIcon } from "./icons/sheet";
 import { BlogIcon } from "./icons/blog";
