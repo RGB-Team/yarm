@@ -8,11 +8,17 @@ interface ConstructMetadataParams {
   noIndex?: boolean
 }
 
+export const baseUrl =
+	process.env.NODE_ENV === "development"
+		? new URL(process.env.NEXT_PUBLIC_APP_URL!).toString()
+		: new URL(`https://${process.env.VERCEL_URL!}`).toString();
+
+console.log(baseUrl)
+
 export function constructMetadata({
   title = "Your Site Name",
   description = "Your site description",
-  image = "/meta/og-image.png", // assuming you have this
-  icons,
+  image = "/api/og",
   noIndex = false,
 }: ConstructMetadataParams = {}): Metadata {
   return {
@@ -72,8 +78,8 @@ export function constructMetadata({
 export const siteConfig = {
   name: "Yet Another Registry Manager",
   description: "A modern web-based registry manager designed to streamline modern application development workflows.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://yarm.vercel.app",
-  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL || "https://yarm.vercel.app"}/api/og`,
+  url: baseUrl,
+  ogImage: `${baseUrl}/api/og`,
   links: {
     twitter: "https://twitter.com/@BylkaYf",
     github: "https://github.com/RGB-Team/yarm",
@@ -90,7 +96,7 @@ export const siteConfig = {
   authors: [
     {
       name: "RGB-Team",
-      url: "https://yarm.vercel.app",
+      url: "https://github.com/RGB-Team",
     },
   ],
   themeColor: {

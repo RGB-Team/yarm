@@ -1,5 +1,7 @@
+import { baseUrl } from "./seo";
+
 export const siteConfig = {
-  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://yarm.vercel.app',
+  baseUrl,
   // Add all static routes here
   staticRoutes: [
     '',              // home page
