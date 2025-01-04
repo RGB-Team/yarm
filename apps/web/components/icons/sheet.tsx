@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@yarm/ui/lib/utils"
 
 type SheetIconProps = {
     className?: string
