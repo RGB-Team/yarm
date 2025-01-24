@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "./logo";
 import { Input } from "@yarm/ui/components/ui/input";
@@ -6,9 +8,22 @@ import { GithubIcon } from "./icons/github";
 import { SheetIcon } from "./icons/sheet";
 import { BlogIcon } from "./icons/blog";
 import { Search } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import { useDebounce } from "@/hooks/use-debounce";
+import { SearchResults } from "@/components/search/search-results";
+import { searchRegistries } from "@/lib/search";
+import { SearchBar } from "@/components/search/search-bar";
+import dummyData from "@/data/dummy.json";
 
 export function Navbar() {
+  const [query, setQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const debouncedQuery = useDebounce(query, 300);
+
+  const results = debouncedQuery
+    ? searchRegistries(dummyData.registries, { query: debouncedQuery })
+    : [];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-7xl mx-auto px-4">
@@ -19,27 +34,8 @@ export function Navbar() {
           </div>
 
           {/* Center section with search */}
-
           <div className="flex-1 mx-4 max-w-2xl">
-            <div className="relative group">
-              <Input
-                type="search"
-                placeholder="Search components, registries..."
-                className="w-full pl-4 pr-8 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer"
-              />
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-2 text-sm text-muted-foreground/70 peer-focus:opacity-0 transition-opacity duration-200">
-                <span>
-                  Type
-                  <kbd className="pointer-events-none text-sm border border-muted-foreground/20 rounded-sm px-1 mx-2 py-0.5">
-                    /
-                  </kbd>
-                  to search
-                </span>
-                <Button variant="ghost" size="icon" className="bg-black/10">
-                  <Search className="text-muted-foreground/70" />
-                </Button>
-              </div>
-            </div>
+            <SearchBar />
           </div>
 
           {/* Right section with navigation */}
