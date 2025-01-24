@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@yarm/ui/components/ui/input";
 import { Button } from "@yarm/ui/components/ui/button";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
 import { SearchResults } from "@/components/search/search-results";
 import { searchRegistries } from "@/lib/search";
@@ -17,8 +17,8 @@ export function SearchBar() {
   const [isSearching, setIsSearching] = useState(false);
   const debouncedQuery = useDebounce(query, 300);
   const searchRef = useRef<HTMLDivElement>(null);
-  
-  const results = debouncedQuery 
+
+  const results = debouncedQuery
     ? searchRegistries(dummyData.registries, { query: debouncedQuery })
     : [];
 
@@ -32,13 +32,21 @@ export function SearchBar() {
     }
   };
 
+  const handleClear = () => {
+    setQuery("");
+    setIsSearching(false);
+    router.replace("/", { scroll: false });
+  };
+
   // Handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "/" && !isSearching) {
         e.preventDefault();
         setIsSearching(true);
-        const input = document.querySelector<HTMLInputElement>('input[type="search"]');
+        const input = document.querySelector<HTMLInputElement>(
+          'input[type="search"]'
+        );
         input?.focus();
       } else if (e.key === "Escape" && isSearching) {
         setIsSearching(false);
@@ -55,7 +63,7 @@ export function SearchBar() {
         <Input
           type="search"
           placeholder="Search components, registries..."
-          className="w-full pl-4 pr-8 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer"
+          className="w-full pl-4 pr-20 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -71,14 +79,31 @@ export function SearchBar() {
             </kbd>
             to search
           </span>
-          <Button type="submit" variant="ghost" size="icon" className="bg-black/10">
+          <Button
+            type="submit"
+            variant="ghost"
+            size="icon"
+            className="bg-black/10"
+          >
             <Search className="text-muted-foreground/70" />
           </Button>
         </div>
+        {query && (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="absolute right-12 top-1/2 transform -translate-y-1/2"
+            onClick={handleClear}
+            aria-label="Clear search"
+          >
+            <X className="h-4 w-4 text-muted-foreground/70" />
+          </Button>
+        )}
       </form>
 
       {isSearching && query && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-background/40 backdrop-blur-xl border rounded-lg shadow-lg p-4 z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-background border rounded-lg shadow-lg p-4 z-50">
           <SearchResults results={results} isLoading={false} />
         </div>
       )}
