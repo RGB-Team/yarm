@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <div className="relative">
         <GridPattern />
-        <main className="flex min-h-screen flex-col items-center px-4">
+        <main className="flex min-h-[calc(80vh-100px)] flex-col items-center px-4">
           <section className="flex flex-col items-center text-center max-w-4xl pt-20 pb-16">
             <div className="mb-8">
               <Logo />
