@@ -6,10 +6,10 @@ import { Footer } from "@/components/footer";
 import { GridPattern } from "@/components/grid-pattern";
 import { GithubIcon } from "@/components/icons/github";
 import dummyData from "@/data/dummy.json";
+import { sortByPopularity } from "@/lib/utils";
 
 export default function Home() {
-  dummyData.registries.length = 6;
-  const data = dummyData.registries;
+  const data = sortByPopularity(dummyData.registries).slice(0, 6);
   return (
     <>
       <div className="relative">
