@@ -5,11 +5,16 @@ import { Logo } from "@/components/logo";
 import { Footer } from "@/components/footer";
 import { GridPattern } from "@/components/grid-pattern";
 import { GithubIcon } from "@/components/icons/github";
+import { PopularCards } from "@/components/registry-cards";
 import dummyData from "@/data/dummy.json";
-import { sortByPopularity } from "@/lib/utils";
+
+function sortByPopularity(registries: typeof dummyData.registries) {
+  return [...registries].sort((a, b) => b.stars - a.stars);
+}
 
 export default function Home() {
-  const data = sortByPopularity(dummyData.registries).slice(0, 6);
+  const sortedData = sortByPopularity(dummyData.registries);
+
   return (
     <>
       <div className="relative">
@@ -55,43 +60,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="w-full max-w-7xl pb-20 pt-20">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">
-                Discover Popular Registries
-              </h2>
-              <Button variant="secondary-outline">See All</Button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {data.length
-                ? data.map((registry) => (
-                    <div
-                      key={`${registry.owner}/${registry.name}`}
-                      className="p-6 rounded-lg border-[0.5] bg-card"
-                    >
-                      <div className="flex items-center gap-0 mb-3">
-                        <span className="text-primary">@{registry.owner}</span>
-                        <span>/{registry.name}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {registry.description}
-                      </p>
-                      <div className="flex gap-2 flex-wrap">
-                        {registry.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </section>
+          <PopularCards initialData={sortedData} />
         </main>
         <Footer />
       </div>
