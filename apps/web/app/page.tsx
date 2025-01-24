@@ -5,8 +5,11 @@ import { Logo } from "@/components/logo";
 import { Footer } from "@/components/footer";
 import { GridPattern } from "@/components/grid-pattern";
 import { GithubIcon } from "@/components/icons/github";
+import dummyData from "@/data/dummy.json";
 
 export default function Home() {
+  dummyData.registries.length = 6;
+  const data = dummyData.registries;
   return (
     <>
       <div className="relative">
@@ -61,31 +64,32 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {Array(6)
-                .fill(0)
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className="p-6 rounded-lg border-[0.5] border-muted-foreground/20 bg-card"
-                  >
-                    <div className="flex items-center gap-0 mb-3">
-                      <span className="text-primary">@bylka</span>
-                      <span>/shadcn-date-picker</span>
+              {data.length
+                ? data.map((registry) => (
+                    <div
+                      key={`${registry.owner}/${registry.name}`}
+                      className="p-6 rounded-lg border-[0.5] bg-card"
+                    >
+                      <div className="flex items-center gap-0 mb-3">
+                        <span className="text-primary">@{registry.owner}</span>
+                        <span>/{registry.name}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {registry.description}
+                      </p>
+                      <div className="flex gap-2 flex-wrap">
+                        {registry.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      A dart implementation of the famous javascript library
-                      &apos;jsonwebtoken&apos; (JWT).
-                    </p>
-                    <div className="flex gap-2">
-                      <span className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs">
-                        shadcn
-                      </span>
-                      <span className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs">
-                        date-picker
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                : null}
             </div>
           </section>
         </main>
