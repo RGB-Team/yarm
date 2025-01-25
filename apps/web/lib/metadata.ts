@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import { siteConfig } from "@/config/seo"
 
 interface MetadataProps {
@@ -45,7 +45,7 @@ export function constructMetadata({
     authors: siteConfig.authors,
     creator: siteConfig.creator,
     keywords: siteConfig.keywords,
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
     alternates: {
       canonical: url,
     },
@@ -92,9 +92,6 @@ export function constructMetadata({
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
-    themeColor: [
-      { media: '(prefers-color-scheme: light)', color: siteConfig.themeColor.light },
-      { media: '(prefers-color-scheme: dark)', color: siteConfig.themeColor.dark },
-    ],
   }
-} 
+}
+
