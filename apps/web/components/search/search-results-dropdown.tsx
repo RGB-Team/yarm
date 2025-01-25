@@ -79,7 +79,7 @@ export function SearchResultsDropdown({
                 <span>3 days ago</span>
               </div>
               <div className="flex gap-2">
-                {result.tags.slice(0, 3).map((tag) => (
+                {result.tags.slice(0, 3).map((tag: string) => (
                   <Badge key={tag} variant="outline" className="text-xs">
                     {tag}
                   </Badge>

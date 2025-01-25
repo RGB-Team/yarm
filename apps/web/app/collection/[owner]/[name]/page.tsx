@@ -6,15 +6,18 @@ import dummyData from "@/data/dummy.json";
 import { constructMetadata } from "@/lib/metadata";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     owner: string;
     name: string;
-  };
+  }>;
+  // searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const { owner, name } = await params;
+
   const collection = dummyData.collections.find(
-    (c) => c.owner === params.owner && c.name === params.name
+    (c) => c.owner === owner && c.name === name
   );
 
   if (!collection) return {};
@@ -22,13 +25,15 @@ export async function generateMetadata({ params }: PageProps) {
   return constructMetadata({
     title: `${collection.name} by ${collection.owner}`,
     description: collection.description,
-    pathname: `/collection/${params.owner}/${params.name}`,
+    pathname: `/collection/${owner}/${name}`,
   });
 }
 
-export default function CollectionPage({ params }: PageProps) {
+export default async function CollectionPage({ params }: PageProps) {
+  const { owner, name } = await params;
+
   const collection = dummyData.collections.find(
-    (c) => c.owner === params.owner && c.name === params.name
+    (c) => c.owner === owner && c.name === name
   );
 
   if (!collection) {
@@ -45,9 +50,9 @@ export default function CollectionPage({ params }: PageProps) {
             <span>/</span>
             <span>collections</span>
             <span>/</span>
-            <span>{collection.owner}</span>
+            <span>{owner}</span>
             <span>/</span>
-            <span className="text-foreground">{collection.name}</span>
+            <span className="text-foreground">{name}</span>
           </div>
         </div>
       </nav>
@@ -66,4 +71,4 @@ export default function CollectionPage({ params }: PageProps) {
       </main>
     </div>
   );
-} 
+}
