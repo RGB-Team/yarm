@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@yarm/ui/components/ui/input";
 import { Button } from "@yarm/ui/components/ui/button";
-import { Search, X } from "lucide-react";
+import { Search, X, ArrowRight } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
 import { SearchResults } from "@/components/search/search-results";
 import { searchCollections } from "@/lib/search";
@@ -22,6 +22,9 @@ export function SearchBar() {
     ? searchCollections(dummyData.collections, { query: debouncedQuery })
     : [];
 
+  const limitedResults = results.slice(0, 3);
+  const hasMoreResults = results.length > 3;
+
   useOnClickOutside(searchRef, () => setIsSearching(false));
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,6 +33,11 @@ export function SearchBar() {
       router.push(`/search?q=${encodeURIComponent(query.trim())}`);
       setIsSearching(false);
     }
+  };
+
+  const handleShowMore = () => {
+    router.push(`/search?q=${encodeURIComponent(query.trim())}`);
+    setIsSearching(false);
   };
 
   const handleClear = () => {
@@ -104,6 +112,27 @@ export function SearchBar() {
           )}
         </div>
       </form>
+
+      {isSearching && query && (
+        <div className="absolute w-full mt-2 rounded-lg border bg-background shadow-lg z-50">
+          <SearchResults results={limitedResults} />
+          {hasMoreResults && (
+            <div className="p-4 border-t border-border">
+              <Button
+                variant="ghost"
+                className="w-full justify-between text-muted-foreground hover:text-foreground"
+                onClick={handleShowMore}
+              >
+                Show all results
+                <span className="flex items-center text-sm text-muted-foreground/70">
+                  press <kbd className="mx-2 px-2 py-0.5 border rounded-sm">Enter</kbd>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </span>
+              </Button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
