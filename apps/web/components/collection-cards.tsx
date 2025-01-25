@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@yarm/ui/components/ui/button";
+import Link from "next/link";
 import { useState } from "react";
 
 interface Collection {
@@ -24,10 +25,8 @@ export function PopularCards({ initialData }: CollectionCardsProps) {
   return (
     <section className="w-full max-w-7xl pb-20 pt-20">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">
-          Discover Popular Collections
-        </h2>
-        <Button 
+        <h2 className="text-2xl font-bold">Discover Popular Collections</h2>
+        <Button
           variant="secondary-outline"
           onClick={() => setIsExpanded(!isExpanded)}
         >
@@ -36,34 +35,39 @@ export function PopularCards({ initialData }: CollectionCardsProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {data.map((registry, index) => (
-          <div
-            key={`${registry.owner}/${registry.name}`}
-            className="p-6 rounded-lg border-[0.5] bg-card transform transition-all duration-500 ease-in-out"
-            style={{
-              opacity: 0,
-              animation: `fadeIn 500ms ease-out forwards`,
-              animationDelay: `${index * 100}ms`
-            }}
+        {data.map((collection, index) => (
+          <Link
+            key={`${collection.owner}/${collection.name}`}
+            href={`/collection/${collection.owner}/${collection.name}`}
+            className="block"
           >
-            <div className="flex items-center gap-0 mb-3">
-              <span className="text-primary">@{registry.owner}</span>
-              <span>/{registry.name}</span>
+            <div
+              className="p-6 rounded-lg border-[0.5] bg-card transform transition-all duration-500 ease-in-out"
+              style={{
+                opacity: 0,
+                animation: `fadeIn 500ms ease-out forwards`,
+                animationDelay: `${index * 100}ms`,
+              }}
+            >
+              <div className="flex items-center gap-0 mb-3">
+                <span className="text-primary">@{collection.owner}</span>
+                <span>/{collection.name}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                {collection.description}
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {collection.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              {registry.description}
-            </p>
-            <div className="flex gap-2 flex-wrap">
-              {registry.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 rounded-full bg-transparent border border-muted-foreground/20 text-xs"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -81,4 +85,4 @@ export function PopularCards({ initialData }: CollectionCardsProps) {
       `}</style>
     </section>
   );
-} 
+}
