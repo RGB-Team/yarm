@@ -60,7 +60,10 @@ export function SearchResults({ results, isLoading }: SearchResultsProps) {
                   {result.version || "1.0.0"}
                 </span>
                 <DotSeparator />
-                <span aria-label="last-time-update" className="truncate max-w-fit w-full">
+                <span
+                  aria-label="last-time-update"
+                  className="truncate max-w-fit w-full"
+                >
                   3 days ago
                 </span>
               </div>
@@ -82,10 +85,18 @@ export function SearchResults({ results, isLoading }: SearchResultsProps) {
                 Collection
               </Badge>
               <div className="flex gap-2 justify-end">
-                <Button size="icon" variant="default-secondary" className="size-7">
+                <Button
+                  size="icon"
+                  variant="default-secondary"
+                  className="size-7"
+                >
                   <Search className="size-4" />
                 </Button>
-                <Button size="icon" variant="default-secondary" className="size-7">
+                <Button
+                  size="icon"
+                  variant="default-secondary"
+                  className="size-7"
+                >
                   <Search className="size-4" />
                 </Button>
               </div>
