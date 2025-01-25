@@ -1,0 +1,212 @@
+{
+  "registries": [
+    {
+      "owner": "shadcn",
+      "name": "ui",
+      "description": "Beautifully designed components built with Radix UI and Tailwind CSS.",
+      "tags": ["components", "radix", "tailwind"],
+      "stars": 45200,
+      "downloads": 982340
+    },
+    {
+      "owner": "bylka",
+      "name": "shadcn-date-picker",
+      "description": "A customizable date picker component built on top of shadcn/ui with advanced features.",
+      "tags": ["shadcn", "date-picker", "calendar"],
+      "stars": 1240,
+      "downloads": 45670
+    },
+    {
+      "owner": "web-craft",
+      "name": "motion-primitives",
+      "description": "Low-level animation primitives for building high-performance web animations.",
+      "tags": ["animation", "performance", "primitives"],
+      "stars": 3400,
+      "downloads": 127890
+    },
+    {
+      "owner": "open-ui",
+      "name": "tree-components",
+      "description": "Accessible and customizable tree view components following WAI-ARIA practices.",
+      "tags": ["accessibility", "tree-view", "aria"],
+      "stars": 890,
+      "downloads": 34560
+    },
+    {
+      "owner": "ui-verse",
+      "name": "form-wizard",
+      "description": "Multi-step form wizard with validation, conditional fields and form persistence.",
+      "tags": ["forms", "validation", "wizard"],
+      "stars": 2100,
+      "downloads": 78900
+    },
+    {
+      "owner": "devkit",
+      "name": "grid-system",
+      "description": "Framework-agnostic responsive grid system with support for complex layouts.",
+      "tags": ["layout", "grid", "responsive"],
+      "stars": 1560,
+      "downloads": 56780
+    },
+    {
+      "owner": "headless-ui",
+      "name": "select-box",
+      "description": "Fully accessible and customizable select component with virtual scrolling support.",
+      "tags": ["select", "accessibility", "virtual-scroll"],
+      "stars": 2800,
+      "downloads": 156000
+    },
+    {
+      "owner": "ui-core",
+      "name": "toast-notifications",
+      "description": "Lightweight and customizable toast notification system with screen reader support.",
+      "tags": ["notifications", "accessibility", "ui"],
+      "stars": 1750,
+      "downloads": 89400
+    },
+    {
+      "owner": "web-elements",
+      "name": "carousel",
+      "description": "High-performance carousel component with touch support and lazy loading.",
+      "tags": ["slider", "touch", "performance"],
+      "stars": 3200,
+      "downloads": 167000
+    },
+    {
+      "owner": "design-system",
+      "name": "color-tools",
+      "description": "Advanced color manipulation utilities for design systems and theming.",
+      "tags": ["colors", "theming", "design"],
+      "stars": 980,
+      "downloads": 45600
+    },
+    {
+      "owner": "ui-patterns",
+      "name": "data-table",
+      "description": "Feature-rich data table with sorting, filtering, and pagination capabilities.",
+      "tags": ["table", "data", "sorting"],
+      "stars": 4100,
+      "downloads": 234000
+    },
+    {
+      "owner": "web-toolkit",
+      "name": "modal-system",
+      "description": "Flexible modal system with nested dialogs and focus management.",
+      "tags": ["modal", "dialog", "accessibility"],
+      "stars": 1890,
+      "downloads": 98700
+    },
+    {
+      "owner": "component-lab",
+      "name": "infinite-scroll",
+      "description": "Efficient infinite scroll implementation with intersection observer.",
+      "tags": ["scroll", "performance", "observer"],
+      "stars": 2300,
+      "downloads": 145600
+    },
+    {
+      "owner": "ui-foundation",
+      "name": "tabs-advanced",
+      "description": "Advanced tabs component with dynamic content loading and keyboard navigation.",
+      "tags": ["tabs", "navigation", "keyboard"],
+      "stars": 1450,
+      "downloads": 78900
+    },
+    {
+      "owner": "web-components",
+      "name": "drag-drop",
+      "description": "Lightweight drag and drop library with touch support and sorting capabilities.",
+      "tags": ["dnd", "touch", "sorting"],
+      "stars": 3600,
+      "downloads": 189000
+    },
+    {
+      "owner": "design-tools",
+      "name": "typography-system",
+      "description": "Comprehensive typography system with fluid scaling and vertical rhythm.",
+      "tags": ["typography", "scaling", "design"],
+      "stars": 1200,
+      "downloads": 67800
+    },
+    {
+      "owner": "ui-essentials",
+      "name": "accordion-plus",
+      "description": "Enhanced accordion component with animation and nested content support.",
+      "tags": ["accordion", "animation", "ui"],
+      "stars": 890,
+      "downloads": 45600
+    },
+    {
+      "owner": "web-utils",
+      "name": "virtual-list",
+      "description": "High-performance virtual list component for handling large datasets.",
+      "tags": ["virtualization", "performance", "list"],
+      "stars": 2700,
+      "downloads": 156000
+    },
+    {
+      "owner": "ui-blocks",
+      "name": "menu-system",
+      "description": "Comprehensive menu system with keyboard navigation and context menus.",
+      "tags": ["menu", "navigation", "keyboard"],
+      "stars": 1680,
+      "downloads": 89400
+    },
+    {
+      "owner": "component-forge",
+      "name": "form-elements",
+      "description": "Collection of accessible form elements with validation and masking.",
+      "tags": ["forms", "accessibility", "validation"],
+      "stars": 2100,
+      "downloads": 123000
+    },
+    {
+      "owner": "web-patterns",
+      "name": "layout-primitives",
+      "description": "Flexible layout primitives for building complex responsive interfaces.",
+      "tags": ["layout", "responsive", "primitives"],
+      "stars": 1950,
+      "downloads": 112000
+    },
+    {
+      "owner": "ui-masters",
+      "name": "tooltip-system",
+      "description": "Advanced tooltip system with positioning and animation capabilities.",
+      "tags": ["tooltip", "positioning", "animation"],
+      "stars": 1340,
+      "downloads": 78900
+    },
+    {
+      "owner": "design-blocks",
+      "name": "skeleton-loader",
+      "description": "Customizable skeleton loading components for better user experience.",
+      "tags": ["loading", "ux", "animation"],
+      "stars": 1560,
+      "downloads": 89000
+    },
+    {
+      "owner": "web-core",
+      "name": "dialog-system",
+      "description": "Comprehensive dialog system with stacking and animation support.",
+      "tags": ["dialog", "modal", "animation"],
+      "stars": 2200,
+      "downloads": 134000
+    },
+    {
+      "owner": "ui-craft",
+      "name": "breadcrumb-pro",
+      "description": "Advanced breadcrumb component with dynamic routing and customization.",
+      "tags": ["navigation", "routing", "ui"],
+      "stars": 780,
+      "downloads": 45600
+    },
+    {
+      "owner": "component-box",
+      "name": "image-gallery",
+      "description": "Responsive image gallery with lazy loading and zoom capabilities.",
+      "tags": ["gallery", "images", "lazy-loading"],
+      "stars": 1890,
+      "downloads": 98700
+    }
+  ]
+}
