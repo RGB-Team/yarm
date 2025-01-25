@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "@yarm/ui/components/ui/input";
 import { Button } from "@yarm/ui/components/ui/button";
@@ -10,11 +10,13 @@ import { SearchResults } from "@/components/search/search-results";
 import { searchCollections } from "@/lib/search";
 import dummyData from "@/data/dummy.json";
 import { useOnClickOutside } from "@/hooks/use-click-outside";
+import { SearchResultsDropdown } from "./search-results-dropdown";
 
 export function SearchBar() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const debouncedQuery = useDebounce(query, 300);
   const searchRef = useRef<HTMLDivElement>(null);
 
@@ -65,20 +67,24 @@ export function SearchBar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isSearching]);
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    setIsOpen(true);
+  };
+
   return (
     <div ref={searchRef} className="relative w-full max-w-2xl">
       <form onSubmit={handleSubmit} className="relative group">
-        <Input
-          type="search"
-          placeholder="Search components, collections..."
-          className="w-full py-5 pl-4 pr-20 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden border-0"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setIsSearching(true);
-          }}
-          onFocus={() => setIsSearching(true)}
-        />
+        <div className="relative">
+          <Input
+            placeholder="Search components, collections..."
+            className="w-full pl-10 border-0 bg-background"
+            value={query}
+            onChange={handleSearch}
+            onFocus={() => setIsOpen(true)}
+          />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        </div>
         <div className="absolute right-[0.8px] top-1/2 transform -translate-y-1/2 flex items-center gap-2">
           {query ? (
             <Button
@@ -131,6 +137,20 @@ export function SearchBar() {
               </Button>
             </div>
           )}
+        </div>
+      )}
+
+      {isOpen && (
+        <div className="relative">
+          <SearchResultsDropdown 
+            query={query} 
+            onShowMoreAction={handleShowMore}
+            onCloseAction={() => setIsOpen(false)}
+          />
+          <div 
+            className="fixed inset-0 z-40"
+            onClick={() => setIsOpen(false)}
+          />
         </div>
       )}
     </div>
