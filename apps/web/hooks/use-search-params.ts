@@ -1,6 +1,5 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-import { SortOption, Framework, ContentType } from "@/lib/services/search-service";
 
 export function useSearchStateParams() {
   const router = useRouter();

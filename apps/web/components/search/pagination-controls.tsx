@@ -24,7 +24,6 @@ export function PaginationControls({
   currentPage,
   onPageChangeAction,
 }: PaginationControlsProps) {
-  const [currentPageState, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const handlePageChange = (newPage: number) => {

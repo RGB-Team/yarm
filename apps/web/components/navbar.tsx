@@ -2,15 +2,12 @@
 
 import Link from "next/link";
 import { Logo } from "./logo";
-import { Input } from "@yarm/ui/components/ui/input";
 import { Button } from "@yarm/ui/components/ui/button";
 import { GithubIcon } from "./icons/github";
 import { SheetIcon } from "./icons/sheet";
 import { BlogIcon } from "./icons/blog";
-import { Search } from "lucide-react";
 import React, { useState } from "react";
 import { useDebounce } from "@/hooks/use-debounce";
-import { SearchResults } from "@/components/search/search-results";
 import { searchCollections } from "@/lib/search";
 import { SearchBar } from "@/components/search/search-bar";
 import dummyData from "@/data/dummy.json";

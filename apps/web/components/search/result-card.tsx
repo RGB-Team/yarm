@@ -69,7 +69,7 @@ export function ResultCard({ result }: ResultCardProps) {
                 className="size-7"
                 onClick={(e) => {
                   e.preventDefault(); // Prevent navigation
-                  // Add copy command functionality
+                  // TODO: Add copy command functionality
                 }}
               >
                 <Search className="size-4" />
