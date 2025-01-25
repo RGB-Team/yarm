@@ -71,42 +71,39 @@ export function SearchBar() {
           }}
           onFocus={() => setIsSearching(true)}
         />
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-2 text-sm text-muted-foreground/70 peer-focus:opacity-0 transition-opacity duration-200">
-          <span>
-            Type
-            <kbd className="pointer-events-none text-sm border border-muted-foreground/20 rounded-sm px-1 mx-2 py-0.5">
-              /
-            </kbd>
-            to search
-          </span>
-          <Button
-            type="submit"
-            variant="ghost"
-            size="icon"
-            className="bg-black/10"
-          >
-            <Search className="text-muted-foreground/70" />
-          </Button>
+        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
+          {query ? (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="bg-black/10"
+              onClick={handleClear}
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4 text-muted-foreground/70" />
+            </Button>
+          ) : (
+            <div className="text-sm text-muted-foreground/70 peer-focus:opacity-0 transition-opacity duration-200 flex items-center gap-2">
+              <span>
+                Type
+                <kbd className="pointer-events-none text-sm border border-muted-foreground/20 rounded-sm px-1 mx-2 py-0.5">
+                  /
+                </kbd>
+                to search
+              </span>
+              <Button
+                type="submit"
+                variant="ghost"
+                size="icon"
+                className="bg-black/10"
+              >
+                <Search className="text-muted-foreground/70" />
+              </Button>
+            </div>
+          )}
         </div>
-        {query && (
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            className="absolute right-12 top-1/2 transform -translate-y-1/2"
-            onClick={handleClear}
-            aria-label="Clear search"
-          >
-            <X className="h-4 w-4 text-muted-foreground/70" />
-          </Button>
-        )}
       </form>
-
-      {isSearching && query && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-background border rounded-lg shadow-lg p-4 z-50">
-          <SearchResults results={results} isLoading={false} />
-        </div>
-      )}
     </div>
   );
 }
