@@ -1,5 +1,5 @@
 {
-  "registries": [
+  "collections": [
     {
       "owner": "shadcn",
       "name": "ui",

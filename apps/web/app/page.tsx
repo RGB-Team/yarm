@@ -5,15 +5,15 @@ import { Logo } from "@/components/logo";
 import { Footer } from "@/components/footer";
 import { GridPattern } from "@/components/grid-pattern";
 import { GithubIcon } from "@/components/icons/github";
-import { PopularCards } from "@/components/registry-cards";
+import { PopularCards } from "@/components/collection-cards";
 import dummyData from "@/data/dummy.json";
 
-function sortByPopularity(registries: typeof dummyData.registries) {
-  return [...registries].sort((a, b) => b.stars - a.stars);
+function sortByPopularity(collections: typeof dummyData.collections) {
+  return [...collections].sort((a, b) => b.stars - a.stars);
 }
 
 export default function Home() {
-  const sortedData = sortByPopularity(dummyData.registries);
+  const sortedData = sortByPopularity(dummyData.collections);
 
   return (
     <>
@@ -45,7 +45,7 @@ export default function Home() {
               </Button>
               <div className="relative sm:w-2/3">
                 <Input
-                  placeholder="Search components, registries..."
+                  placeholder="Search components, collections..."
                   className="pr-10 h-11 w-full border bg-white/10 placeholder:text-muted-foreground/50"
                 />
                 <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-1 text-sm text-muted-foreground/70">

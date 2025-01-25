@@ -4,7 +4,7 @@ A modern web-based registry manager designed to streamline modern application de
 
 ## Overview
 
-Yarm is a tool that helps developers easily manage and switch between different npm registries, making it simpler to work with private and public package repositories. Whether you're working with npm, GitHub Packages, or private registries, this tool provides a seamless experience for registry management.
+Yarm is a tool that helps developers easily manage and switch between different npm registries, making it simpler to work with private and public package repositories. Whether you're working with npm, GitHub Packages, or private collections, this tool provides a seamless experience for registry management.
 
 ## Features
 

@@ -7,12 +7,12 @@ interface SearchOptions {
 }
 
 /**
- * Search for registries based on the provided options.
- * @param data - The array of registries to search.
+ * Search for collections based on the provided options.
+ * @param data - The array of collections to search.
  * @param options - The search options.
- * @returns The filtered array of registries.
+ * @returns The filtered array of collections.
  */
-export function searchRegistries(data: any[], options: SearchOptions) {
+export function searchCollections(data: any[], options: SearchOptions) {
   const { query, filters } = options;
   
   return data.filter((item) => {

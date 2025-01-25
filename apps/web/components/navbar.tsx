@@ -11,7 +11,7 @@ import { Search } from "lucide-react";
 import React, { useState } from "react";
 import { useDebounce } from "@/hooks/use-debounce";
 import { SearchResults } from "@/components/search/search-results";
-import { searchRegistries } from "@/lib/search";
+import { searchCollections } from "@/lib/search";
 import { SearchBar } from "@/components/search/search-bar";
 import dummyData from "@/data/dummy.json";
 
@@ -21,7 +21,7 @@ export function Navbar() {
   const debouncedQuery = useDebounce(query, 300);
 
   const results = debouncedQuery
-    ? searchRegistries(dummyData.registries, { query: debouncedQuery })
+    ? searchCollections(dummyData.collections, { query: debouncedQuery })
     : [];
 
   return (

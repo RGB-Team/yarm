@@ -60,7 +60,7 @@ const SearchCommand = ({
       <div className="flex-1 relative">
         <Input
           ref={ref}
-          placeholder="Search components, registries..."
+          placeholder="Search components, collections..."
           className="w-full rounded-none indent-4 pr-8 ring-offset-transparent placeholder:text-muted-foreground/50 caret-primary peer ring-0 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
           onClick={() => divRef.current?.focus()}
         />

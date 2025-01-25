@@ -3,7 +3,7 @@
 import { Button } from "@yarm/ui/components/ui/button";
 import { useState } from "react";
 
-interface Registry {
+interface Collection {
   owner: string;
   name: string;
   description: string;
@@ -12,11 +12,11 @@ interface Registry {
   downloads: number;
 }
 
-interface RegistryCardsProps {
-  initialData: Registry[];
+interface CollectionCardsProps {
+  initialData: Collection[];
 }
 
-export function PopularCards({ initialData }: RegistryCardsProps) {
+export function PopularCards({ initialData }: CollectionCardsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const displayCount = isExpanded ? 12 : 6;
   const data = initialData.slice(0, displayCount);
@@ -25,7 +25,7 @@ export function PopularCards({ initialData }: RegistryCardsProps) {
     <section className="w-full max-w-7xl pb-20 pt-20">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">
-          Discover Popular Registries
+          Discover Popular Collections
         </h2>
         <Button 
           variant="secondary-outline"

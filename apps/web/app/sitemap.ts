@@ -17,14 +17,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dynamicRoutes: MetadataRoute.Sitemap = []
   
   // Example of how to add dynamic routes when you have them:
-  // const registries = await fetchRegistries()
-  // const registryRoutes = registries.map(registry => ({
-  //   url: `${baseUrl}/registry/${registry.id}`,
-  //   lastModified: registry.updatedAt,
+  // const collections = await fetchcollections()
+  // const collectionRoutes = collections.map(collection => ({
+  //   url: `${baseUrl}/collection/${collection.id}`,
+  //   lastModified: collection.updatedAt,
   //   changeFrequency: 'daily' as const,
   //   priority: 0.7,
   // }))
-  // dynamicRoutes.push(...registryRoutes)
+  // dynamicRoutes.push(...collectionRoutes)
 
   return [...staticRoutes, ...dynamicRoutes]
 } 

@@ -7,7 +7,7 @@ import { Button } from "@yarm/ui/components/ui/button";
 import { Badge } from "@yarm/ui/components/ui/badge";
 import { CardTest } from "@yarm/ui/components/tests/card-test";
 
-const Registry = [
+const Collection = [
   {
     title: "Typography",
     children: [
@@ -83,7 +83,7 @@ export default function SinkPage() {
       <p className="text-gray-400 text-center ">
         This page is used to showcase the design system components and styles.
       </p>
-      {Registry.map((section) => (
+      {Collection.map((section) => (
         <div key={section.title} className="space-y-2">
           <h3 className="text-lg text-primary">{section.title}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">

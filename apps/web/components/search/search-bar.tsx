@@ -7,7 +7,7 @@ import { Button } from "@yarm/ui/components/ui/button";
 import { Search, X } from "lucide-react";
 import { useDebounce } from "@/hooks/use-debounce";
 import { SearchResults } from "@/components/search/search-results";
-import { searchRegistries } from "@/lib/search";
+import { searchCollections } from "@/lib/search";
 import dummyData from "@/data/dummy.json";
 import { useOnClickOutside } from "@/hooks/use-click-outside";
 
@@ -19,7 +19,7 @@ export function SearchBar() {
   const searchRef = useRef<HTMLDivElement>(null);
 
   const results = debouncedQuery
-    ? searchRegistries(dummyData.registries, { query: debouncedQuery })
+    ? searchCollections(dummyData.collections, { query: debouncedQuery })
     : [];
 
   useOnClickOutside(searchRef, () => setIsSearching(false));
@@ -62,8 +62,8 @@ export function SearchBar() {
       <form onSubmit={handleSubmit} className="relative group">
         <Input
           type="search"
-          placeholder="Search components, registries..."
-          className="w-full pl-4 pr-20 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+          placeholder="Search components, collections..."
+          className="w-full py-5 pl-4 pr-20 bg-white/10 backdrop-blur-md placeholder:text-muted-foreground/50 peer [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden border-0"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -71,7 +71,7 @@ export function SearchBar() {
           }}
           onFocus={() => setIsSearching(true)}
         />
-        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
+        <div className="absolute right-[0.8px] top-1/2 transform -translate-y-1/2 flex items-center gap-2">
           {query ? (
             <Button
               type="button"

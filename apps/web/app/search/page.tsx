@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { SearchResults } from "@/components/search/search-results";
-import { searchRegistries } from "@/lib/search";
+import { searchCollections } from "@/lib/search";
 import dummyData from "@/data/dummy.json";
 import { Badge } from "@yarm/ui/components/ui/badge";
 import { Checkbox } from "@yarm/ui/components/ui/checkbox";
@@ -12,10 +12,9 @@ interface SearchPageProps {
   searchParams: { q?: string };
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || "";
-  const results = query ? searchRegistries(dummyData.registries, { query }) : [];
-
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const query = (await searchParams).q || "";
+  const results = query ? searchCollections(dummyData.collections, { query }) : [];
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="flex gap-8">
@@ -44,7 +43,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
             <LineSeparator />
 
             {/* Framework Filter */}
-            <div className="space-y-4">
+            <div className="space-y-4"> 
               <h3 className="font-semibold">Framework</h3>
               <div className="space-y-2">
                 {['React', 'Vue', 'Svelte', 'Web Components'].map((framework) => (
